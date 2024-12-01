@@ -1,0 +1,41 @@
+# Box layout to arrange the widgets vertically
+BoxLayout:
+    orientation: 'vertical'
+
+    # Horizontal BoxLayout to hold the miles input and the up/down buttons
+    BoxLayout:
+        orientation: 'horizontal'
+
+        # TextInput to allow the user to input miles
+        TextInput:
+            id: input_miles
+            text: '34'  # Default value
+            font_size: 48
+            # on_text: app.handle_calculate()
+
+        # Vertical BoxLayout for the up/down buttons
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 0.25
+
+            # Button to increment the miles value by 1
+            Button:
+                text: 'Up'
+                on_press: app.handle_increment(1)  # Increase miles by 1
+
+            # Button to decrement the miles value by 1
+            Button:
+                text: 'Down'
+                on_press: app.handle_increment(-1)  # Decrease miles by 1
+
+    Button:
+        text: 'Convert'
+        font_size: 48
+        on_press: app.handle_calculate()
+
+    # Label to display the result (miles to kilometers)
+    Label:
+        id: output_label
+        font_size: 48
+        text: '54.717'  # Default value
+        color: (1, 1, 0, 1)
